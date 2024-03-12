@@ -17,11 +17,13 @@ async function fetchUser(){
 fetchUser();
 gettingUser.addEventListener("click", ()=>{
 	fetchUser();
-})
-if(userData){
 	image.src=`${userData.picture.medium}`;
 	name.innerText=`${userData.name.first} ${userData.name.last}`
-}
+})
+
+	image.src=`${userData.picture.medium}`;
+	name.innerText=`${userData.name.first} ${userData.name.last}`
+
 
 
 
