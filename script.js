@@ -8,29 +8,29 @@ let name =document.querySelector(".name");
 let age=document.getElementById("ageBtn");
 let email=document.getElementById("emailBtn");
 let phone=document.getElementById("phoneBtn");
-let userData;
+let mockResponseOne;
 async function fetchUser(){
     const res=await fetch("https://randomuser.me/api/");
 	const data=await res.json();
 	// console.log(data)
-	userData=data.results[0];
-	image.src=`${userData.picture.medium}`;
-	name.innerText=`${userData.name.first} ${userData.name.last}`
+	mockResponseOne=data;
+	image.src=`${mockResponseOne.results[0].picture.large}`;
+	name.innerText=`${mockResponseOne.results[0].name.first} ${mockResponseOne.results[0].name.last}`
 	description.innerText="";
-	console.log(userData);
+	console.log(mockResponseOne.results[0]);
 }
 fetchUser();
 gettingUser.addEventListener("click", ()=>{
 	fetchUser();
 })
 age.addEventListener("click", ()=>{
-	description.innerText=`${userData.dob.age}`;
+	description.innerText=`${mockResponseOne.results[0].dob.age}`;
 })
 email.addEventListener("click", ()=>{
-	description.innerText=`${userData.email}`;
+	description.innerText=`${mockResponseOne.results[0].email}`;
 })
 phone.addEventListener("click", ()=>{
-	description.innerText=`${userData.phone}`;
+	description.innerText=`${mockResponseOne.results[0].phone}`;
 })
 	
 
